@@ -12,11 +12,14 @@
 const AWS = require('aws-sdk');
 
 
+
+
+
 const data = require('../data');
 
 const get = function(_id){
-     getAll().find(cars => cars._id == _id);
-    return getAll1().find(cars => cars._id == _id);
+     getAll1();
+    return getAll().find(cars => cars._id == _id);
 }
 
 
