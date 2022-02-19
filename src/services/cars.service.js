@@ -12,9 +12,6 @@
 const AWS = require('aws-sdk');
 
 
-
-
-
 const data = require('../data');
 
 const get = function(_id){
