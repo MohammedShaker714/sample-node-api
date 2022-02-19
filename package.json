@@ -13,11 +13,7 @@
   "author": "",
   "license": "EPL-2.0",
   "dependencies": {
-<<<<<<< HEAD
     "aws-sdk": "^2.1077.0",
-=======
-      "aws-sdk": "^2.1077.0",
->>>>>>> b82c234b3ffc16d3677c7547c96424f2067944d6
     "cors": "2.8.5",
     "express": "4.17.1",
     "swagger-ui-express": "4.2.0",
