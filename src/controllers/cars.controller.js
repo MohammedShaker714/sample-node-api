@@ -11,12 +11,23 @@
 const carsService = require('../services/cars.service');
 
 const get = function(req, res){
-    res.send(carsService.get(req.params._id))
+   // res.send(carsService.get(req.params._id))
+         var data = carsService.get(req.params._id);
+        console.log(data);
+        data.then( (succ) =>  {console.log(succ)
+         res.send(succ);
+        });
+
 }
 
 const getAll = function(req, res){
-    res.send(carsService.getAll())
+        var data = carsService.getAll();
+        console.log(data);
+        data.then( (succ) =>  {console.log(succ)
+         res.send(succ);
+        });
 }
+
 
 module.exports = {
     get,

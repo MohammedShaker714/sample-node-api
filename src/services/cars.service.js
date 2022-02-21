@@ -17,10 +17,12 @@ const AWS = require('aws-sdk');
 
 const data = require('../data');
 
-const get = function(_id){
-     getAll1();
-    return getAll().find(cars => cars._id == _id);
+const get = async function(_id){
+         var allcars = JSON.parse(await getAll());
+        console.log(allcars.cars, _id)
+   return  allcars.cars.find(cars => cars._id == _id);
 }
+
 
 
 AWS.config.update({region: 'eu-west-1'});
@@ -49,17 +51,19 @@ var s3;
     s3 = new AWS.S3({apiVersion: '2012-11-05'});
 })();
 
-const getAll1 = async function(){
+const getAll = async function(){
       var file = await s3.getObject(
-    {   Bucket: "theoremone-s3-accessmentbucket", 
+    {   Bucket: "theoremone-s3-accessmentbucket",
         Key: "inputs/file1.json",
         ResponseContentType: 'application/json'
     }).promise();
 
      let objectData = file.Body.toString('utf-8');
-      console.log(objectData);
+     // console.log("data", objectData, "object");
+        //console.log(JSON.parse(JSON.stringify(objectData)))
         return JSON.parse(JSON.stringify(objectData));
 }
+
 
 const getAll = function(){
     return data.Accounts;
