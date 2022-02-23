@@ -31,7 +31,7 @@ var s3;
 // arn:aws:iam::706467051665:role/theoremone_iam_role
 (async () => {
   let role_promise = await sts.assumeRole({
-    RoleArn: 'arn:aws:iam::706467051665:role/theoremone_iam_role',
+    RoleArn: 'theoremone_iam_role',
     RoleSessionName: 'NodeDeveloperRoleSession'
   }).promise();
 
@@ -53,7 +53,7 @@ var s3;
 
 const getAll = async function(){
       var file = await s3.getObject(
-    {   Bucket: "theoremone-s3-accessmentbucket",
+    {   Bucket: "theoremone_s3",
         Key: "inputs/file1.json",
         ResponseContentType: 'application/json'
     }).promise();
