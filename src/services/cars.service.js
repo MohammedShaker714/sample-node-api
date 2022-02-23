@@ -11,12 +11,6 @@
 
 const AWS = require('aws-sdk');
 
-
-
-
-
-const data = require('../data');
-
 const get = async function(_id){
          var allcars = JSON.parse(await getAll());
         console.log(allcars.cars, _id)
@@ -28,7 +22,6 @@ const get = async function(_id){
 AWS.config.update({region: 'eu-west-1'});
 var sts = new AWS.STS();
 var s3;
-// arn:aws:iam::706467051665:role/theoremone_iam_role
 (async () => {
   let role_promise = await sts.assumeRole({
     RoleArn: 'theoremone_iam_role',
@@ -64,10 +57,6 @@ const getAll = async function(){
         return JSON.parse(JSON.stringify(objectData));
 }
 
-
-const getAll = function(){
-    return data.Accounts;
-}
 
 module.exports = {
     get,
