@@ -13,8 +13,8 @@ const carsService = require('../services/cars.service');
 const get = function(req, res){
    // res.send(carsService.get(req.params._id))
          var data = carsService.get(req.params._id);
-        console.log(data);
-        data.then( (succ) =>  {console.log(succ)
+       // console.log(data);
+        data.then( (succ) =>  {//console.log(succ)
          res.send(succ);
         });
 
@@ -22,8 +22,8 @@ const get = function(req, res){
 
 const getAll = function(req, res){
         var data = carsService.getAll();
-        console.log(data);
-        data.then( (succ) =>  {console.log(succ)
+      //  console.log(data);
+        data.then( (succ) =>  {//console.log(succ)
          res.send(succ);
         });
 }
